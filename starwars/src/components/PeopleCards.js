@@ -1,46 +1,59 @@
-
 import React from 'react'
 import styled from 'styled-components'
 
+const DivHolder = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+`
 const WrapperDiv = styled.div`
+    padding: 5px 0;
     font-family: sans-serif;
     border-radius: 10px;
-    width: 50%;
-    margin: 0 auto;
+    width: 45%;
+    margin: 20px auto;
 `
 const OpaqueDiv = styled.div`
     background-color: white;
     opacity: .5;
-    width: 50%;
-    margin: 0 auto;
+    width: 45%;
+    margin: 20px auto;
     border-radius: 10px;
 `
+const ListDiv = styled.p`
+    text-align: left;
+    opacity: 1;
+`
+
+
 
 const PeopleCards = (props) => {
-   //let something = props.data;
-   // props.data && console.log("props " + props.data)
-   // something && something.map(e => {
-  console.log(props);
-   let e = props.data
-        return (
-            <WrapperDiv>
-            <OpaqueDiv>
-                
-                    <h1>{e.name}</h1>
-                    <h3>STATS:</h3>
-                    <div>
-                        <li>Height: {e.height}</li>
-                        <li>Mass: {e.mass}</li>
-                        <li>Hair: {e.hair_color}</li>
-                        <li>Skin: {e.skin_color}</li>
-                        <li>Eyes: {e.eye_color}</li>
-                        <li>Year of Birth: {e.birth_year}</li>
-                        <li>Gender: {e.gender}</li>
-                    </div>
-            </OpaqueDiv>
-            </WrapperDiv>
-        )
-   //  })
+    
+    //props.data && console.log(props);
+    
+    return (
+        <>
+        <DivHolder>
+        {props.data && props.data.map(item => 
+                <>
+                <OpaqueDiv>
+                <WrapperDiv> 
+                <h1>{item.name}</h1>
+                <h3>STATS:</h3>        
+                   <ListDiv>Height: {item.height} <br/></ListDiv>
+                   <ListDiv>Mass: {item.mass}<br/></ListDiv>
+                   <ListDiv>Hair: {item.hair_color}<br/></ListDiv>
+                   <ListDiv>Skin: {item.skin_color}<br/></ListDiv>
+                   <ListDiv>Eyes: {item.eye_color}<br/></ListDiv>
+                   <ListDiv>Year of Birth: {item.birth_year}<br/></ListDiv>
+                   <ListDiv>Gender: {item.gender}<br/></ListDiv>        
+                </WrapperDiv>
+                </OpaqueDiv>
+                </> 
+        )} </DivHolder>
+        </> 
+   
+    )
 }
 
 export default PeopleCards
