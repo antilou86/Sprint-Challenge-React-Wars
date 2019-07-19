@@ -7,15 +7,13 @@ const WrapperDiv = styled.div`
     font-family: sans-serif;
     border-radius: 10px;
 `
-const {data} = props;
-
 const PeopleCards = (props) => {
   
-    
+
 
   return (
   <WrapperDiv>
-    <h1>{data.name}</h1>
+    <h1>{props.data.name}</h1>
     <h3>STATS:</h3>
     <Stats data={data}/>
   </WrapperDiv>
